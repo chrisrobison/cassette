@@ -17,15 +17,62 @@
         width:1200px;
         height:680px;
         margin:5% auto;
+        position:relative;
     }
     .reel {
         background-image:url("reel.png");
         animation: rotate1 10s infinite linear;
-        width:208px;
-        height:208px;
+        width:13rem;
+        height:13rem;
         position:absolute;
         background-size:contain;
     }
+    .tape {
+        width:11rem;
+        height:11rem;
+        position:absolute;
+        border-radius:100rem;
+        background-size:contain;
+        box-sizing: content-box;
+    }
+    #tape1 {
+       animation: shrinkTape 600s infinite linear alternate;
+       border:7rem solid #000; 
+       top:-6rem;
+       left:-6rem;
+    }
+    #tape2 {
+       animation: growTape 600s infinite linear alternate;
+       border:1rem solid #000; 
+       top:0rem;
+       left:0rem;
+    }
+    @keyframes shrinkTape {
+        0% {
+            border: 7rem solid #000;
+            top:-6rem;
+            left:-6rem;
+        }
+        100% {
+            border:1rem solid #000;
+            top:0rem;
+            left:0rem;
+        }
+    }
+    
+    @keyframes growTape {
+        0% {
+            border: 1rem solid #000;
+            top:0rem;
+            left:0rem;
+        }
+        100% {
+            border: 7rem solid #000;
+            top:-6rem;
+            left:-6rem;
+        }
+    }
+
     @keyframes rotate1 {
             0% { 
                 transform: rotate(0deg);
@@ -44,23 +91,27 @@
     }
 
     #reel1 {
-        left:500px;
-        top:290px;
+        left:17rem;
+        top:13rem;
         animation: rotate1 10s infinite linear;
     }
     #reel2 {
-        left:800px;
-        top:200px;
+        left:43rem;
+        top:13rem;
         animation: rotate2 10s infinite linear;
     }
 </style>
 </head>
 
 <body id="home">
-    <div id='tape'></div>
-    <div id='reel1' class='reel'></div>
-    <div id='reel2' class='reel'></div>
-
+    <div id='tape'>
+        <div id='reel1' class='reel'>
+            <div id='tape1' class='tape'></div>
+        </div>
+        <div id='reel2' class='reel'>
+            <div id='tape2' class='tape'></div>
+        </div>
+    </div>
 <script>
     (function() {
         const app = {
